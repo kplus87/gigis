@@ -41,6 +41,7 @@ var APP = (function() {
             $('.alert-warning').fadeIn('slow');
             setTimeout(function() {
                 $('.alert-warning').fadeOut('slow');
+                $("#inputgroup").slideDown('slow');
             }, STREAM_END_TIMEOUT * 1000);
         });
     };

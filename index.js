@@ -12,7 +12,7 @@ var express = require('express'),
     twitter = require('ntwitter'),
     creds, client, twit,
     port = process.env.PORT || 8080,
-    STREAM_TIMEOUT = 90000, // The stream will automatically end after this value (in seconds), defaults to 20
+    STREAM_TIMEOUT = 60, // The stream will automatically end after this value (in seconds), defaults to 20
     TWEETS_TO_KEEP = 10; // The number of tweets to keep in Redis, defaults to 10
 
 
