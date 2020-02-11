@@ -1,0 +1,338 @@
+@import url(https://fonts.googleapis.com/css?family=Khula);
+*:focus, *:active {
+  outline: 0 !important;
+}
+
+::selection {
+  background: #AAA;
+  color: white;
+}
+
+body {
+  background: transparent url("https://unsplash.imgix.net/photo-1414446483597-8d8f792bfe39?q=75&fm=jpg&s=2756ab87b786786b9e689b6204d99c90") center top no-repeat;
+  background-size: cover 100%;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.map-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  width: 280px;
+  position: relative;
+  margin: 40px auto 20px;
+}
+@media (min-width: 750px) {
+  .map-card {
+    width: 320px;
+  }
+}
+
+.map-card #googleMap {
+  transition: all 300ms;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 200px;
+}
+@media (min-width: 750px) {
+  .map-card #googleMap {
+    height: 300px;
+  }
+}
+
+.map-card .map-card__info {
+  padding: 20px 20px 15px;
+}
+.map-card .map-card__info #js-address {
+  border-bottom: 0px solid #CCC;
+  color: #5D5D5D;
+  font-family: 'Khula', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 7px;
+  margin: 0 0 10px;
+}
+.map-card .map-card__info input {
+  border: 1px solid #CCC;
+  color: #999;
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 5px 10px;
+}
+.map-card .map-card__info button {
+  transition: all 300ms;
+  -webkit-appearance: none;
+  background-color: #6fd2fc;
+  border: none;
+  border-bottom: 1px solid #4da6d1;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 14px;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+.map-card .map-card__info button:active {
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.4);
+  border-bottom-color: transparent;
+}
+@media (min-width: 750px) {
+  .map-card .map-card__info button {
+    position: absolute;
+    right: -25px;
+    bottom: -25px;
+  }
+}
+
+.map-card .info-panel {
+  transition: all 300ms;
+  background-color: #5bec99;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  bottom: -80px;
+  left: 20px;
+  padding: 20px;
+}
+@media (min-width: 750px) {
+  .map-card .info-panel {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+.map-card .info-panel:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12.5px 15px 12.5px;
+  border-color: transparent transparent #5bec99 transparent;
+  position: absolute;
+  left: 20px;
+  top: -15px;
+}
+.map-card .info-panel.active {
+  opacity: 1;
+  bottom: 3px;
+}
+@media (min-width: 750px) {
+  .map-card .info-panel.active {
+    bottom: -50px;
+  }
+}
+.map-card .info-panel p {
+  margin: 0;
+}
+
+.gmnoscreen,
+.gm-style-mtc,
+.gm-style-cc {
+  display: none;
+}
+
+
+
+
+
+
+
+.pin-wrap {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin-top: -120.7106781187px;
+  margin-left: -50px;
+  -webkit-transform-origin: 50% 120.7106781187% 0;
+          transform-origin: 50% 120.7106781187% 0;
+    transform: scale(0.66);
+}
+
+.pin {
+  background-image: url("img/gigimarker.png");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  -webkit-transform-origin: 50% 120.7106781187% 0;
+          transform-origin: 50% 120.7106781187% 0;
+}
+
+.pin::after {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  content: '';
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+  border: 20px solid #f93c11;
+  border: 20px solid #d784b8;
+  border: 20px solid #61bdff;
+  border-radius: 50% 50% 50% 50%;
+}
+
+.pin::before {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  content: '';
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+  border: 18px solid #d22b05;
+  border: 18px solid #61bdff;
+  border: 18px solid #318bcc;
+  border-radius: 50% 50% 50% 0;
+}
+
+.shadow {
+  position: absolute;
+}
+
+.shadow::after {
+  position: absolute;
+  left: -125px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  content: '';
+  -webkit-transform: rotateX(55deg);
+          transform: rotateX(55deg);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.5) 100px 0 20px;
+  box-shadow: rgba(25, 72, 107, 0.85) 100px 0 20px;
+}
+
+.pulse {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: -50px;
+  -webkit-transform: rotateX(55deg);
+          transform: rotateX(55deg);
+}
+
+.pulse::after {
+  display: block;
+  width: 100px;
+  height: 100px;
+  content: '';
+  -webkit-animation: pulsate 1s ease-out;
+          animation: pulsate 1s ease-out;
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 6px 3px #f93c11;
+  box-shadow: 0 0 6px 3px #61bdff;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+            transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.6, 1.6);
+            transform: scale(1.6, 1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+            transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.6, 1.6);
+            transform: scale(1.6, 1.6);
+    opacity: 0;
+  }
+}
+.header {
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 2em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  color: #f93c11;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+h1 {
+  font-family: Raleway, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  margin-bottom: 10px;
+  border-bottom: 2px dashed #f93c11;
+  display: inline-block;
+}
+
+.tags {
+  font-weight: 300;
+}
+
+.list-label {
+  font-family: Raleway, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 400;
+}
+
+.header li {
+  display: inline-block;
+}
+
+.tags a {
+  color: #f93c11;
+}
+
+.animations a {
+  line-height: 42px;
+  display: block;
+  box-sizing: border-box;
+  height: 44px;
+  margin: 0 5px;
+  padding: 0 10px;
+  text-decoration: none;
+  color: #f93c11;
+  border: 2px solid #f93c11;
+  border-radius: 22px;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.animations a:hover {
+  color: white;
+  background: #f93c11;
+}
