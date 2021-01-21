@@ -10,7 +10,7 @@
     "oauth": "^0.9.15",
     "redis": "^2.6.3",
     "request": "^2.81.0",
-    "socket.io": "^1.7.4",
+    "socket.io": "^2.4.0",
     "striptags": "^3.0.1",
     "underscore": "^1.8.3"
   },
